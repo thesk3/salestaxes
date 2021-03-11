@@ -11,7 +11,7 @@ public class Receipt {
 	
 	public void printReceiptProduct(ArrayList<Product> productsList, double taxTotal, double total) {
 		// TODO Auto-generated method stub
-		System.out.println("Output : " );
+		
 
 		int numOfItems = productsList.size();
 		for(int i = 0;i<numOfItems;i++){

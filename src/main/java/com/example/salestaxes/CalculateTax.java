@@ -63,6 +63,7 @@ public class CalculateTax {
 			total = runningSum.doubleValue();
 			
 			Receipt rc=new Receipt();
+			System.out.println();
 			rc.printReceiptProduct(productsList,taxTotal ,total );
 	}		
 	
