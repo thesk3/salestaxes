@@ -5,7 +5,7 @@ import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
-public class CalculateTax {
+public class CalculateTax implements TaxCalculatorIntf{
 	private double total;
 	private double taxTotal;
 	

@@ -2,7 +2,22 @@ package com.example.salestaxes;
 
 import java.util.ArrayList;
 
+
 public class RetriveProduct {
+	enum ItemTypeList{
+		BOOK("Book"),
+		MUSIC_CD("Music CD"),
+		CHOCOLATE("Chocolate");
+		private String itemName;
+		private ItemTypeList( String name){
+			itemName = name;
+		}
+
+		public String getItemName(){
+			return itemName;
+		}
+	}
+
 	private static final String CHECK_IMPORTED = "imported";
 	private ArrayList<Product> productsList = new ArrayList<Product>();
 	
@@ -45,7 +60,8 @@ public class RetriveProduct {
             		System.out.println("Bad Formatting");
             		
             	} else {
-            		
+            		ItemTypeList list[] = ItemTypeList.values();
+
                 	float price = Float.parseFloat((line.substring(splitIndex + 2))); //the price is the token after the substring "at"
                     
                 	String name = line.substring(1, splitIndex); //the name is everything between the qty and at
@@ -60,6 +76,8 @@ public class RetriveProduct {
                         	if(exemptedType != null){
                         		//the product is not imported and is exempt of sales tax
                         		
+                        		
+								
                         		if(exemptedType == "book"){
                         			newProduct = new Product(name,price,ItemType.IMPORTED_BOOK);
                         		} else if(exemptedType == "pills"){
@@ -67,6 +85,8 @@ public class RetriveProduct {
                         		} else if(exemptedType == "chocolate"){
                         			newProduct = new Product(name,price,ItemType.IMPORTED_FOOD);
                         		}
+                        		
+                        		
 
                         	} else {
                         		//the product is imported and sales taxed
